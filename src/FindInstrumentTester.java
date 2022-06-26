@@ -1,34 +1,20 @@
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
-public class FindGuitarTester {
+public class FindInstrumentTester {
 
     public static void main(String[] args) {
         // Set up Rick's guitar inventory
         Inventory inventory = new Inventory();
         initializeInventory(inventory);
 
-        GuitarSpec whatErinLikes = new GuitarSpec(Builder.FENDER, "Stratocastor",
-                Type.ELECTRIC, 6, Wood.ALDER, Wood.ALDER);
+        Map properties = new HashMap();
+        properties.put("builder", Builder.GIBSON);
+        properties.put("backWood", Wood.MAPLE);
 
-        List matchingGuitars = inventory.search(whatErinLikes);
-
-        if (!matchingGuitars.isEmpty()) {
-            System.out.println("Gene, you might like these guitars:");
-
-            for (Iterator i = matchingGuitars.iterator(); i.hasNext(); ) {
-                Guitar guitar = (Guitar)i.next();
-                GuitarSpec spec = guitar.getSpec();
-                System.out.println("  We have a " +
-                        spec.getBuilder() + " " + spec.getModel() + " " +
-                        spec.getType() + " guitar:\n\t" +
-                        spec.getBackWood() + " back and sides,\n\t" +
-                        spec.getTopWood() + " top.\n\tPrice: $" +
-                        guitar.getPrice() + "!\n  ---");
-            }
-        } else {
-            System.out.println("Sorry, Gene, we have nothing for you.");
-        }
+        InstrumentSpec searchCriteria = new InstrumentSpec(properties);
     }
 
     private static void initializeInventory(Inventory inventory) {
