@@ -1,6 +1,6 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="SearchInventory" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="FindInstrumentTester" />
+    <option name="MAIN_CLASS_NAME" value="FindInstrument" />
     <module name="GuitarStore" />
     <method v="2">
       <option name="Make" enabled="true" />
